@@ -1,0 +1,5 @@
+html { scroll-behavior: smooth; }
+:root { --header-h: 64px; }
+[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+
+/* 必要なら予約フォームやカレンダーの調整 */

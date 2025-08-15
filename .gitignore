@@ -1,0 +1,19 @@
+# mac / editor
+.DS_Store
+.vscode/
+.idea/
+
+# logs & env
+*.log
+.env
+.env.*
+
+# build tools（使っている場合）
+node_modules/
+dist/
+build/
+.tmp/
+.cache/
+
+# OS
+Thumbs.db
