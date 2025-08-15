@@ -1,346 +1,369 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>広津農園｜長崎県西海市のブルーベリー・みかん狩り</title>
-  <meta name="description" content="長崎・西海市の観光農園『広津農園』。ブルーベリー＆みかん狩りの予約と最新情報。家族で楽しめる体験型農園です。">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>広津農園｜長崎・西海市のブルーベリー＆みかん狩り</title>
+  <meta name="description" content="長崎・西海市の広津農園。ブルーベリー・みかん狩りの予約や最新情報はこちら。">
+  <link href="assets/styles.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-white text-gray-900 font-sans">
-  <!-- ヘッダー -->
-  <header class="bg-green-700 text-white sticky top-0 z-50 shadow">
-    <div class="container mx-auto flex items-center justify-between px-4 py-3">
-      <div class="text-xl font-bold">広津農園</div>
-      <nav class="hidden md:flex space-x-4">
+
+<!-- 構造化データ: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "広津農園",
+  "image": "https://hirotsufarm.site/assets/logo.png",
+  "url": "https://hirotsufarm.site/",
+  "telephone": "+81-90-6633-4185",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "長崎県西海市西彼町小迎郷 大ヒロガリ畑236-1",
+    "addressLocality": "西海市",
+    "addressRegion": "長崎県",
+    "postalCode": "851-3422",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [{
+    "@type":"OpeningHoursSpecification",
+    "dayOfWeek":["Monday","Wednesday","Saturday","Sunday"],
+    "opens":"09:00","closes":"17:00"
+  }],
+  "paymentAccepted": "Cash, Credit Card, IC Card, QR Code",
+  "priceRange": "¥",
+  "sameAs": [
+    "https://www.instagram.com/hirotsufarm/?hl=ja",
+    "https://www.facebook.com/hirotsufarm"
+  ]
+}
+</script>
+
+<!-- 構造化データ: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"予約は必要ですか？",
+     "acceptedAnswer":{"@type":"Answer","text":"オンラインからの事前予約をお願いします。空きがあれば当日受付も可能です。"}},
+    {"@type":"Question","name":"支払い方法は？",
+     "acceptedAnswer":{"@type":"Answer","text":"現金、各種クレジットカード、交通系IC、QR決済に対応しています。"}},
+    {"@type":"Question","name":"雨の日の営業について",
+     "acceptedAnswer":{"@type":"Answer","text":"小雨程度なら営業しますが、荒天時は安全のため休園する場合があります。なお、キャンセル・日程変更は無料です。予約完了メール記載のアドレスもしくは、お電話（090-6633-4185）にてご連絡ください。"}},
+    {"@type":"Question","name":"キャンセル・日程変更について",
+     "acceptedAnswer":{"@type":"Answer","text":"ご予約後のキャンセル・日程変更は無料です。予約完了メール記載のアドレスもしくは、お電話（090-6633-4185）にてご連絡ください。"}}
+  ]
+}
+</script>
+
+<body class="text-gray-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-green-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="text-xl font-semibold">ブルーベリー・みかん広津農園</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#reserve" class="hover:underline">予約</a><!-- ★ナビに予約 -->
         <a href="#news" class="hover:underline">お知らせ</a>
-        <a href="#experience" class="hover:underline">体験内容</a>
-        <a href="#reserve" class="hover:underline">予約</a>
+        <a href="#experience" class="hover:underline">体験</a>
+        <a href="#prices" class="hover:underline">料金</a>
         <a href="#access" class="hover:underline">アクセス</a>
-        <a href="#contact" class="hover:underline">お問い合わせ</a>
+        <a href="#faq" class="hover:underline">よくある質問</a>
       </nav>
-      <a href="#reserve" class="bg-white text-green-700 px-4 py-2 rounded font-semibold hover:bg-gray-100">予約する</a>
+      <a href="#reserve" class="hidden md:inline-block bg-white text-green-700 px-4 py-2 rounded font-semibold">予約する</a>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded bg-white/10">☰</button>
+    </div>
+    <!-- mobile menu -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-white/20 bg-green-800">
+      <nav class="max-w-6xl mx-auto px-4 py-3 grid gap-3 text-sm">
+        <a href="#reserve" class="block">予約</a>
+        <a href="#news" class="block">お知らせ</a>
+        <a href="#experience" class="block">体験</a>
+        <a href="#prices" class="block">料金</a>
+        <a href="#access" class="block">アクセス</a>
+        <a href="#faq" class="block">よくある質問</a>
+        <a href="#reserve" class="inline-block bg-white text-green-700 px-4 py-2 rounded font-semibold w-max">予約する</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ヒーロー -->
-  <section class="bg-green-50 text-center py-16 px-4">
-    <h1 class="text-3xl md:text-5xl font-bold mb-4">完熟のブルーベリーとみかんを、家族で。</h1>
-    <p class="text-lg md:text-xl mb-6">長崎・西海市の自然豊かな農園で、季節の恵みを体験しよう。</p>
-    <div class="flex justify-center gap-3">
-      <a href="#reserve" class="inline-block bg-green-700 text-white text-lg px-6 py-3 rounded hover:bg-green-800 transition">空き状況を見る</a>
-      <a href="#news" class="inline-block bg-white text-green-700 border border-green-700 text-lg px-6 py-3 rounded hover:bg-green-100 transition">最新のお知らせ</a>
-    </div>
-  </section>
-
-  <!-- お知らせ（スマホ更新：news.json 連携） -->
-  <section id="news" class="py-12 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-6 text-center">最新のお知らせ</h2>
-    <div id="newsList" class="grid gap-4"></div>
-    <p id="newsFallback" class="text-center text-gray-500 hidden mt-4">
-      お知らせはまだありません。スマホから <span class="font-mono">news.json</span> を編集するとここに表示されます。
-    </p>
-    <details class="mt-6 max-w-3xl mx-auto bg-gray-50 rounded border p-4">
-      <summary class="font-semibold cursor-pointer">スマホ更新のやり方（簡単）</summary>
-      <ol class="list-decimal ml-6 mt-3 space-y-1 text-sm text-gray-700">
-        <li>GitHub で <span class="font-mono">news.json</span> を開く</li>
-        <li>右上の ✏️ で編集 → 「Commit changes」</li>
-        <li>1分ほどでサイトに反映（GitHub Pages）</li>
-      </ol>
-    </details>
-  </section>
-
-  <!-- 体験内容 -->
-  <section id="experience" class="py-12 px-4 bg-gray-50">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+  <!-- Hero -->
+  <section class="bg-green-50">
+    <div class="max-w-6xl mx-auto px-4 py-5 grid md:grid-cols-2 gap-8 items-center">
       <div>
-        <img src="https://placehold.co/800x520?text=Blueberry" alt="ブルーベリー狩り" class="rounded shadow">
-        <h3 class="text-xl font-bold mt-4">ブルーベリー狩り（6–8月）</h3>
-        <p class="text-gray-700 mt-2">甘くて粒の大きなブルーベリーをその場で摘み取って味わえます。所要60–90分。</p>
-      </div>
-      <div>
-        <img src="https://placehold.co/800x520?text=Mikan" alt="みかん狩り" class="rounded shadow">
-        <h3 class="text-xl font-bold mt-4">みかん狩り（10–12月）</h3>
-        <p class="text-gray-700 mt-2">完熟のジューシーなみかんをたっぷり。小さなお子さま連れでも安心の導線。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 予約 -->
-  <section id="reserve" class="py-12 px-4 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-bold mb-2 text-center">予約（所要1分）</h2>
-    <p class="text-center text-gray-600 mb-6">※当日予約はお電話ください：<a class="underline" href="tel:09000000000">090-0000-0000</a></p>
-
-    <form id="reserveForm" class="space-y-4 bg-white p-4 md:p-6 rounded border shadow-sm">
-      <div class="grid md:grid-cols-2 gap-4">
-        <label class="block">
-          <span class="text-gray-700">来園日</span>
-          <input type="date" id="date" required class="mt-1 block w-full border border-gray-300 rounded p-2"/>
-        </label>
-        <label class="block">
-          <span class="text-gray-700">開始時間</span>
-          <select id="time" required class="mt-1 block w-full border border-gray-300 rounded p-2">
-            <option value="10:00">10:00</option>
-            <option value="11:00">11:00</option>
-            <option value="13:00">13:00</option>
-            <option value="14:00">14:00</option>
-            <option value="15:00">15:00</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        <label class="block">
-          <span class="text-gray-700">体験</span>
-          <select id="menu" required class="mt-1 block w-full border border-gray-300 rounded p-2">
-            <option value="ブルーベリー狩り">ブルーベリー狩り</option>
-            <option value="みかん狩り">みかん狩り</option>
-          </select>
-        </label>
-        <label class="block">
-          <span class="text-gray-700">人数</span>
-          <select id="people" required class="mt-1 block w-full border border-gray-300 rounded p-2">
-            <option value="2">2名</option>
-            <option value="3">3名</option>
-            <option value="4">4名</option>
-            <option value="5">5名</option>
-            <option value="6">6名</option>
-            <option value="7+">7名以上</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        <label class="block">
-          <span class="text-gray-700">お名前</span>
-          <input type="text" id="name" required class="mt-1 block w-full border border-gray-300 rounded p-2"/>
-        </label>
-        <label class="block">
-          <span class="text-gray-700">電話番号</span>
-          <input type="tel" id="tel" required inputmode="tel" pattern="[0-9\\-\\+ ]{9,}" placeholder="090-xxxx-xxxx" class="mt-1 block w-full border border-gray-300 rounded p-2"/>
-        </label>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        <label class="block">
-          <span class="text-gray-700">メール</span>
-          <input type="email" id="email" required class="mt-1 block w-full border border-gray-300 rounded p-2"/>
-        </label>
-        <label class="block">
-          <span class="text-gray-700">連絡手段</span>
-          <select id="contact" class="mt-1 block w-full border border-gray-300 rounded p-2">
-            <option>メールで連絡</option>
-            <option>電話で連絡</option>
-          </select>
-        </label>
-      </div>
-
-      <label class="block">
-        <span class="text-gray-700">ご要望（任意）</span>
-        <textarea id="note" rows="3" class="mt-1 block w-full border border-gray-300 rounded p-2" placeholder="ベビーカー利用・日陰席希望 など"></textarea>
-      </label>
-
-      <label class="inline-flex items-start gap-2 text-sm text-gray-700">
-        <input type="checkbox" id="agree" required class="mt-1">
-        <span>予約規約（キャンセル/雨天時のご案内）に同意します。</span>
-      </label>
-
-      <div class="flex flex-wrap gap-3 pt-2">
-        <button type="button" id="previewBtn" class="bg-green-700 text-white px-5 py-2 rounded hover:bg-green-800">内容を確認</button>
-        <a href="tel:09000000000" class="px-5 py-2 rounded border border-gray-300 text-gray-700 hover:bg-gray-50">電話で相談</a>
-      </div>
-
-      <p id="formMsg" class="text-sm text-green-700 hidden">送信しました。確認メールをお待ちください。</p>
-    </form>
-    <p class="text-xs text-gray-500 mt-2 text-center">※このフォームはフロント実装です。サーバー連携（/api/reserve.php）は別途設定してください。</p>
-  </section>
-
-  <!-- プレビュー/送信モーダル -->
-  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4">
-    <div class="bg-white max-w-lg w-full rounded shadow-lg">
-      <div class="px-5 py-4 border-b">
-        <h3 class="text-lg font-semibold">この内容で予約しますか？</h3>
-      </div>
-      <div class="p-5 space-y-2 text-sm" id="modalBody"></div>
-      <div class="p-5 flex items-center justify-end gap-3 border-t">
-        <button id="cancelBtn" class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50">戻る</button>
-        <button id="submitBtn" class="px-4 py-2 rounded bg-green-700 text-white hover:bg-green-800">送信</button>
-      </div>
-      <div id="afterBlock" class="p-5 hidden border-t">
-        <p class="text-green-700 text-sm mb-3">予約を受け付けました。下記からカレンダー登録できます。</p>
-        <div class="flex flex-wrap gap-3">
-          <a id="icsLink" download="hirotsu-reservation.ics" class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50">.ics を保存</a>
-          <a id="gcalLink" target="_blank" rel="noopener" class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Googleカレンダーに追加</a>
-          <a href="#access" class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50">アクセスを見る</a>
+        <h1 id="heroTitle" class="text-2xl md:text-4xl font-bold leading-tight">完熟を“摘みたて”で。<br>ブルーベリー＆みかん狩り</h1>
+        <p id="heroLead" class="mt-4 text-lg text-gray-700">
+          6–8月：ブルーベリー／10–12月：みかん。<br>長崎県西海市・西海橋そばの家族で楽しめる体験型農園です。
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="#reserve" class="bg-green-700 text-white px-5 py-3 rounded font-semibold">空き状況を見る</a>
+          <a href="#access" class="border border-green-700 text-green-700 px-5 py-3 rounded">アクセス</a>
         </div>
       </div>
+      <div class="aspect-[16/9] bg-white shadow overflow-hidden">
+        <img id="heroImage" src="assets/main.png" alt="ブルーベリー狩り・みかん狩りが楽しめます" class="w-full h-full object-cover">
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ★ 予約フォームをヒーロー直下へ移動 -->
+  <section id="reserve" class="py-10 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 id="reserveTitle" class="text-2xl font-bold">ご予約フォーム</h2>
+      <p id="reserveLead" class="text-gray-600 mt-2">ブルーベリー狩り・みかん狩りのご予約はこちらから。</p>
+
+      <form id="reserveForm" class="mt-6 bg-white rounded-xl shadow p-6 space-y-6" novalidate>
+        <!-- 基本情報 -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-sm text-gray-700">お名前 <span class="text-red-600">*</span></span>
+            <input required name="name" type="text" class="mt-1 w-full border rounded p-2" autocomplete="name">
+          </label>
+          <label class="block">
+            <span class="text-sm text-gray-700">電話番号 <span class="text-red-600">*</span></span>
+            <input required name="tel" type="tel" inputmode="tel" class="mt-1 w-full border rounded p-2" placeholder="090-0000-0000">
+          </label>
+          <label class="block">
+            <span class="text-sm text-gray-700">メールアドレス <span class="text-red-600">*</span></span>
+            <input required name="email" type="email" class="mt-1 w-full border rounded p-2" autocomplete="email">
+          </label>
+        </div>
+
+        <!-- 空き状況 & 時間帯：モバイル1列 / デスクトップ2列 -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- 左：空き状況カレンダー -->
+          <div class="border rounded p-3">
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-700">空き状況</div>
+              <div class="flex gap-2">
+                <button type="button" id="calPrev" class="border rounded px-2 py-1 text-sm">前月</button>
+                <button type="button" id="calNext" class="border rounded px-2 py-1 text-sm">次月</button>
+              </div>
+            </div>
+            <div id="calendar" class="mt-2 border rounded overflow-hidden w-full"></div>
+            <p class="mt-2 text-xs text-gray-500">
+              ◎余裕あり ／ ○空きあり ／ △残りわずか ／ ×満席 ／ —休園
+            </p>
+            <label class="block mt-4">
+              <span class="text-sm text-gray-700">日付（上のカレンダーからお選びください） <span class="text-red-600">*</span></span>
+              <input required name="date" class="mt-1 w-full border rounded p-2">
+            </label>
+          </div>
+
+          <!-- 右：時間帯 -->
+          <div class="border rounded p-3">
+            <label class="block">
+              <span class="text-sm text-gray-700">時間帯 <span class="text-red-600">*</span></span>
+              <select required name="time" id="timeSelect" class="mt-1 w-full border rounded p-2">
+                <option value="">時間を選択してください</option>
+              </select>
+            </label>
+
+            <!-- 人数（ステッパーUI） -->
+            <div class="space-y-3 mt-6" id="peopleBox">
+              <div class="grid gap-3">
+                <div class="border rounded p-3">
+                  <div class="text-sm text-gray-700">大人（中学生以上）</div>
+                  <div class="mt-2 flex items-center gap-2">
+                    <button type="button" data-step="adult:-1" class="w-9 h-9 border rounded">−</button>
+                    <input name="adults" value="0" min="0" max="20" readonly class="w-12 text-center border rounded p-2 bg-gray-50">
+                    <button type="button" data-step="adult:+1" class="w-9 h-9 border rounded">＋</button>
+                  </div>
+                </div>
+                <div class="border rounded p-3">
+                  <div class="text-sm text-gray-700">小学生</div>
+                  <div class="mt-2 flex items-center gap-2">
+                    <button type="button" data-step="elem:-1" class="w-9 h-9 border rounded">−</button>
+                    <input name="elementary" value="0" min="0" max="20" readonly class="w-12 text-center border rounded p-2 bg-gray-50">
+                    <button type="button" data-step="elem:+1" class="w-9 h-9 border rounded">＋</button>
+                  </div>
+                </div>
+                <div class="border rounded p-3">
+                  <div class="text-sm text-gray-700">未就学児</div>
+                  <div class="mt-2 flex items-center gap-2">
+                    <button type="button" data-step="pre:-1" class="w-9 h-9 border rounded">−</button>
+                    <input name="preschool" value="0" min="0" max="20" readonly class="w-12 text-center border rounded p-2 bg-gray-50">
+                    <button type="button" data-step="pre:+1" class="w-9 h-9 border rounded">＋</button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-gray-600">合計：<span id="totalPeople">0</span> 名（上限 20 名）</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 追加 -->
+        <label class="block">
+          <span class="text-sm text-gray-700">ご要望・質問（任意）</span>
+          <textarea name="note" rows="3" class="mt-1 w-full border rounded p-2"></textarea>
+        </label>
+
+        <!-- 注意事項 -->
+        <div class="bg-gray-50 border rounded p-4 text-sm text-gray-700 space-y-1">
+          <p>・小雨決行／荒天時は休園の場合あり。キャンセル・日程変更は無料。</p>
+          <p>・当日の持ち物：歩きやすい靴・飲み物・帽子など。</p>
+        </div>
+
+
+        <!-- ボタン -->
+        <div class="flex flex-col md:flex-row gap-3 md:items-center">
+          <button type="button" id="previewBtn" class="bg-green-700 text-white px-6 py-3 rounded font-semibold">内容を確認</button>
+          <span id="formError" class="text-red-600 text-sm hidden">未入力の必須項目があります。</span>
+        </div>
+      </form>
+
+      <!-- 確認モーダル -->
+      <dialog id="confirmDlg" class="w-full max-w-xl rounded-2xl p-0 backdrop:bg-black/50">
+        <div class="bg-white rounded-2xl overflow-hidden">
+          <div class="px-6 py-4 border-b">
+            <h3 class="text-lg font-semibold">予約内容の確認</h3>
+          </div>
+          <div class="px-6 py-5">
+            <dl class="grid grid-cols-3 gap-y-3 text-sm">
+              <dt class="text-gray-500">お名前</dt><dd id="c_name" class="col-span-2"></dd>
+              <dt class="text-gray-500">電話</dt><dd id="c_tel" class="col-span-2"></dd>
+              <dt class="text-gray-500">メール</dt><dd id="c_email" class="col-span-2"></dd>
+              <dt class="text-gray-500">日付</dt><dd id="c_date" class="col-span-2"></dd>
+              <dt class="text-gray-500">時間</dt><dd id="c_time" class="col-span-2"></dd>
+              <dt class="text-gray-500">人数</dt><dd id="c_people" class="col-span-2"></dd>
+              <dt class="text-gray-500">ご要望</dt><dd id="c_note" class="col-span-2 whitespace-pre-wrap"></dd>
+            </dl>
+          </div>
+          <div class="px-6 py-4 border-t flex gap-3 justify-end">
+            <a id="icsLink" class="hidden underline self-center text-sm" download="hirotsu-farm.ics">カレンダーに追加（.ics）</a>
+            <button id="sendBtn" class="bg-green-700 text-white px-5 py-2 rounded">送信</button>
+            <button id="closeBtn" class="border px-5 py-2 rounded">戻る</button>
+          </div>
+        </div>
+      </dialog>
+    </div>
+  </section>
+
+  <!-- 3つの特徴 -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="font-semibold text-lg">① 甘さと鮮度</h3>
+        <p class="mt-2 text-gray-700">その場で摘み取り、完熟の味わいを体験。</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="font-semibold text-lg">② 子どもに優しい導線</h3>
+        <p class="mt-2 text-gray-700">ベビーカーOK・休憩スペースあり。</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="font-semibold text-lg">③ 駐車場完備</h3>
+        <p class="mt-2 text-gray-700">佐世保市内から車で約30分。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 体験内容（季節で並び替え） -->
+  <section id="experience" class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8" id="expGrid">
+      <article id="cardBlueberry" class="bg-white rounded-xl shadow overflow-hidden">
+        <img src="https://placehold.co/800x520?text=Blueberry" alt="ブルーベリー狩り" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold">ブルーベリー狩り（6–8月）</h3>
+          <p class="mt-2 text-gray-700">甘くて粒の大きな実をその場で摘み取り。所要60–90分。</p>
+        </div>
+      </article>
+      <article id="cardMikan" class="bg-white rounded-xl shadow overflow-hidden">
+        <img src="https://placehold.co/800x520?text=Mikan" alt="みかん狩り" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold">みかん狩り（10–12月）</h3>
+          <p class="mt-2 text-gray-700">完熟の香りと果汁をたっぷり。小さなお子さま連れでも安心。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 料金 -->
+  <section id="prices" class="py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">料金</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow p-6">
+          <h3 class="font-semibold">大人</h3>
+          <p class="mt-2 text-2xl font-bold">¥1,200</p>
+          <p class="text-sm text-gray-600 mt-1">中学生以上</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6">
+          <h3 class="font-semibold">小学生</h3>
+          <p class="mt-2 text-2xl font-bold">¥800</p>
+          <p class="text-sm text-gray-600 mt-1">6–12歳</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6">
+          <h3 class="font-semibold">未就学</h3>
+          <p class="mt-2 text-2xl font-bold">¥0</p>
+          <p class="text-sm text-gray-600 mt-1">無料（保護者同伴）</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">※ 団体割・雨天時のご案内は予約時に表示されます。</p>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section id="news" class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">最新のお知らせ</h2>
+      <div id="newsList" class="mt-6 grid md:grid-cols-2 gap-6"></div>
+      <p id="newsFallback" class="mt-4 text-gray-600 text-sm hidden">お知らせはまだありません。</p>
+    </div>
+  </section>
 
   <!-- アクセス -->
-  <section id="access" class="py-12 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4 text-center">アクセス</h2>
-    <p class="text-center mb-6">長崎県西海市西彼町広津郷◯◯番地<br>車で佐世保市内から約30分</p>
-    <iframe class="w-full h-64 rounded shadow" src="https://www.google.com/maps?q=広津農園&output=embed" loading="lazy"></iframe>
+  <section id="access" class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">アクセス</h2>
+      <div class="mt-4 grid md:grid-cols-2 gap-6">
+        <div class="space-y-2 text-gray-700">
+          <p>長崎県西海市西彼町広津郷◯◯番地</p>
+          <p>佐世保市内から車で約30分／駐車場20台</p>
+          <p class="text-sm text-gray-500">カーナビは「広津農園」で検索</p>
+        </div>
+        <iframe class="w-full h-64 rounded-lg shadow" src="https://www.google.com/maps?q=広津農園&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
   </section>
 
-  <!-- お問い合わせ -->
-  <section id="contact" class="py-12 px-4 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4 text-center">お問い合わせ</h2>
-    <p class="text-center text-gray-700 mb-4">メール: info@hirotsufarm.site / 電話: 090-xxxx-xxxx</p>
-    <p class="text-center text-sm text-gray-500">※予約は上記フォームからお願いします。</p>
+  <!-- FAQ -->
+  <section id="faq" class="py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">よくある質問</h2>
+      <div class="mt-6 divide-y">
+        <details class="py-4">
+          <summary class="font-semibold cursor-pointer">予約は必要ですか？</summary>
+          <p class="mt-2 text-gray-700">オンラインからの事前予約をお願いします。空きがあれば当日受付も可能です。</p>
+        </details>
+        <details class="py-4">
+          <summary class="font-semibold cursor-pointer">支払い方法は？</summary>
+          <p class="mt-2 text-gray-700">現金、各種クレジットカード、交通系IC、QR決済に対応しています。</p>
+        </details>
+        <details class="py-4">
+          <summary class="font-semibold cursor-pointer">雨の日の営業について</summary>
+          <p class="mt-2 text-gray-700">小雨程度なら営業しますが、荒天時は安全のため休園する場合があります。なお、キャンセル・日程変更は無料です。予約完了メール記載のアドレスもしくは、お電話（<a class="underline" href="tel:090-6633-4185">090-6633-4185</a>）にてご連絡ください。</p>
+        </details>
+        <details class="py-4">
+          <summary class="font-semibold cursor-pointer">キャンセル・日程変更について</summary>
+          <p class="mt-2 text-gray-700">ご予約後のキャンセル・日程変更は無料です。予約完了メール記載のアドレスもしくは、お電話（<a class="underline" href="tel:090-6633-4185">090-6633-4185</a>）にてご連絡ください。</p>
+        </details>
+      </div>
+    </div>
   </section>
 
-  <!-- フッター -->
-  <footer class="bg-green-700 text-white py-6 mt-12 text-center">
-    <p>&copy; 2025 広津農園 All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-sm">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+      <p>© 2025 広津農園</p>
+      <p>お問い合わせ: info@hirotsufarm.site / <a class="underline" href="tel:090-6633-4185">090-6633-4185</a></p>
+    </div>
   </footer>
 
-  <script>
-    // ====== News (news.json 読み込み) ======
-    async function loadNews() {
-      try {
-        const res = await fetch('news.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('no news');
-        const items = await res.json();
-        const wrap = document.getElementById('newsList');
-        wrap.innerHTML = '';
-        if (!items || !items.length) {
-          document.getElementById('newsFallback').classList.remove('hidden');
-          return;
-        }
-        items.slice(0, 6).forEach(n => {
-          const el = document.createElement('article');
-          el.className = 'border rounded p-4 bg-white shadow-sm';
-          el.innerHTML = \`
-            <div class="text-sm text-gray-500">\${n.date}</div>
-            <h3 class="font-semibold mt-1">\${n.title || 'お知らせ'}</h3>
-            <p class="text-gray-700 mt-1">\${n.body || ''}</p>
-            \${n.link ? '<a class="text-green-700 underline text-sm" href="' + n.link + '">詳しく見る</a>' : ''}
-          \`;
-          wrap.appendChild(el);
-        });
-      } catch (e) {
-        document.getElementById('newsFallback').classList.remove('hidden');
-      }
-    }
-
-    // ====== 予約プレビュー & 送信（フロント実装） ======
-    const $ = (s, el=document) => el.querySelector(s);
-    const modal = $('#modal');
-    const modalBody = $('#modalBody');
-    const afterBlock = $('#afterBlock');
-    const form = $('#reserveForm');
-
-    function openModal() { modal.classList.remove('hidden'); modal.classList.add('flex'); }
-    function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); }
-
-    $('#previewBtn').addEventListener('click', () => {
-      if (!form.reportValidity()) return;
-      const data = getFormData();
-      modalBody.innerHTML = `
-        <dl class="grid grid-cols-3 gap-2">
-          <dt class="text-gray-500">来園日</dt><dd class="col-span-2">${data.date}</dd>
-          <dt class="text-gray-500">開始時間</dt><dd class="col-span-2">${data.time}</dd>
-          <dt class="text-gray-500">体験</dt><dd class="col-span-2">${data.menu}</dd>
-          <dt class="text-gray-500">人数</dt><dd class="col-span-2">${data.people}名</dd>
-          <dt class="text-gray-500">お名前</dt><dd class="col-span-2">${escapeHtml(data.name)}</dd>
-          <dt class="text-gray-500">電話</dt><dd class="col-span-2">${escapeHtml(data.tel)}</dd>
-          <dt class="text-gray-500">メール</dt><dd class="col-span-2">${escapeHtml(data.email)}</dd>
-          ${data.note ? `<dt class="text-gray-500">ご要望</dt><dd class="col-span-2">${escapeHtml(data.note)}</dd>` : ''}
-        </dl>
-      `;
-      afterBlock.classList.add('hidden');
-      openModal();
-    });
-
-    $('#cancelBtn').addEventListener('click', closeModal);
-
-    $('#submitBtn').addEventListener('click', async () => {
-      const data = getFormData();
-      try {
-        // サーバーに送る場合（PHPなど）。エンドポイント実装後に有効化してください。
-        // const resp = await fetch('/api/reserve.php', {
-        //   method: 'POST',
-        //   headers: {'Content-Type':'application/json'},
-        //   body: JSON.stringify(data)
-        // });
-        // if(!resp.ok) throw new Error('server');
-        // const result = await resp.json();
-        // const id = result.id || Math.random().toString(36).slice(2);
-
-        const id = Math.random().toString(36).slice(2); // demo ID
-        // UI更新
-        $('#formMsg').classList.remove('hidden');
-        makeCalendarLinks(data, id);
-        afterBlock.classList.remove('hidden');
-      } catch(e) {
-        alert('送信に失敗しました。お手数ですがお電話ください。');
-      }
-    });
-
-    function getFormData() {
-      return {
-        date: $('#date').value,
-        time: $('#time').value,
-        menu: $('#menu').value,
-        people: $('#people').value.replace('+',''),
-        name: $('#name').value.trim(),
-        tel: $('#tel').value.trim(),
-        email: $('#email').value.trim(),
-        contact: $('#contact').value,
-        note: $('#note').value.trim(),
-        agree: $('#agree').checked
-      };
-    }
-
-    function escapeHtml(s){ return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',\"'\":'&#39;'}[m])); }
-
-    function makeCalendarLinks(data, id){
-      // ics 生成
-      const start = new Date(`${data.date}T${data.time}:00`);
-      const end = new Date(start.getTime() + 60*60*1000); // 1h
-      const dt = (d)=> d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
-      const summary = `広津農園 ${data.menu}`;
-      const desc = `予約ID:${id}\\n人数:${data.people}名\\nお名前:${data.name}\\nTEL:${data.tel}\\nメール:${data.email}\\nご要望:${data.note||''}`;
-      const ics =
-`BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Hirotsu Farm//JP
-BEGIN:VEVENT
-UID:${id}@hirotsufarm.site
-DTSTAMP:${dt(new Date())}
-DTSTART:${dt(start)}
-DTEND:${dt(end)}
-SUMMARY:${summary}
-DESCRIPTION:${desc.replace(/\\n/g,'\\n')}
-LOCATION:広津農園（長崎県西海市）
-END:VEVENT
-END:VCALENDAR`;
-      const blob = new Blob([ics], {type:'text/calendar'});
-      const url = URL.createObjectURL(blob);
-      document.getElementById('icsLink').href = url;
-
-      // Google Calendar 追加リンク
-      const gparams = new URLSearchParams({
-        action:'TEMPLATE',
-        text: summary,
-        dates: `${dt(start)}/${dt(end)}`,
-        details: desc,
-        location: '広津農園（長崎県西海市）'
-      });
-      document.getElementById('gcalLink').href = 'https://www.google.com/calendar/render?' + gparams.toString();
-    }
-
-    // 初期化
-    (function init(){
-      // 来園日の最小値＝今日
-      const d = new Date();
-      const pad = n => String(n).padStart(2,'0');
-      const min = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-      document.getElementById('date').setAttribute('min', min);
-      loadNews();
-    })();
-  </script>
+  <script src="js/main.js" defer></script>
+  <script src="js/calendar.js" defer></script>
+  <script src="js/seasonal.js" defer></script>
 </body>
 </html>
